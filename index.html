@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style>
+        td input{
+                border: none;
+                background-color: #ffffff;
+                cursor: pointer;
+                width: 100%;
+            }
+            td:hover{
+                background: #1b1b1b;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="mayTinh" name="mayTinh">
+            <input type="text " name="display" id="display" style="width: 100%;">
+
+            <table class="table">
+                <tr>
+                    <td scope="col"><input type="button" value="x^2"></td>
+                    <td scope="col"><input type="button" value="C" onclick="xoaHet()"></td>
+                    <td scope="col"><input type="button" value="Xoa" onclick="xoaTungPhanTu()"></td>
+                    <td scope="col"> <input type="button" value=" / " onclick="chia()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="bay()"></td>
+                    <td><input type="button" value="8" onclick="tam()"></td>
+                    <td><input type="button" value="9" onclick="chin()"></td>
+                    <td><input type="button" value=" * " onclick="nhan()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="bon()"></td>
+                    <td><input type="button" value="5" onclick="nam()"></td>
+                    <td><input type="button" value="6" onclick="sau()"></td>
+                    <td><input type="button" value=" - " onclick="tru()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="mot()"></td>
+                    <td><input type="button" onclick="hai()" value="2"></td>
+                    <td><input type="button" value="3" onclick="ba()"></td>
+                    <td><input type="button" value="+" onclick="cong()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="+ -" onclick="congTru()"></td>
+                    <td><input type="button" value="0" onclick="khong()"></td>
+                    <td><input type="button" value="." onclick="dot()"></td>
+                    <td><input type="button" value=" = " onclick="tong()"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        var mayTinh = document.getElementById('mayTinh');
+        var hienThi = document.getElementById('display');
+        khong = () => {
+            mayTinh.display.value += '0'
+        }
+        mot = () => {
+            mayTinh.display.value += '1'
+        }
+        hai = () => {
+            mayTinh.display.value += '2'
+        }
+        ba = () => {
+            mayTinh.display.value += '3'
+        }
+        bon = () => {
+            mayTinh.display.value += '4'
+        }
+        nam = () => {
+            mayTinh.display.value += '5'
+        }
+        sau = () => {
+            mayTinh.display.value += '6'
+        }
+        bay = () => {
+            mayTinh.display.value += '7'
+        }
+        tam = () => {
+            mayTinh.display.value += '8'
+        }
+        chin = () => {
+            mayTinh.display.value += '9'
+        }
+        cong = () => {
+            mayTinh.display.value += '+'
+        }
+        congTru = () => {
+            if (mayTinh.display.value > 0) {
+                console.log('chuyen sang so am');
+                (mayTinh.display.value = `-${mayTinh.display.value}`);
+                console.log(mayTinh.display.value);
+
+            } else if (mayTinh.display.value == '') {
+                console.log('khong có gì');
+                mayTinh.display.value;
+            } else {
+                console.log('chuyen sang so duong');
+                mayTinh.display.value -= mayTinh.display.value * 2;
+                console.log(mayTinh.display.value);
+            }
+        }
+        tong = () => {
+            console.log(mayTinh.display.value = eval(mayTinh.display.value));
+
+        }
+        tru = () => {
+            mayTinh.display.value += '-';
+        }
+        xoaHet = () => {
+            mayTinh.display.value = '';
+        }
+        nhan = () => {
+            mayTinh.display.value += '*'
+        }
+        chia = () => {
+            mayTinh.display.value += '/'
+        }
+        dot = () => {
+            mayTinh.display.value += '.'
+        }
+        xoaTungPhanTu = () => {
+            var x = mayTinh.display.value;
+            var y = x.split('');
+
+            console.log(y);
+
+        }
+    </script>
+</body>
+
+</html>
